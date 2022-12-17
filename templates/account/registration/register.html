@@ -1,0 +1,62 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block content %}
+
+<div class="register mb-5 mt-4">
+  <div class="container">
+    <div class="row justify-content-between">
+      {% include 'sidebar.html' %}
+      <div class="col-lg-7 col-md-7 auth__register">
+        <h3 class="text-muted mb-4">Регистрация</h3>
+       <form action="" method="post">
+           {% csrf_token %}
+          {% if form.errors %}
+          <p>Пожалуйста, исправьте следующие ошибки:</p>
+            {% for field in form %}
+              {% if field.errors %}
+              <div class="alert alert-primary">
+                {{field.label}}: {{field.errors|striptags}}
+              </div>
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+          <div class="mb-3 w-100">
+            <label class="form-label" for="emailInput"
+              ><span class="text-muted small">{{form.username.label}}</span></label
+            >
+            {{form.username}}
+          </div>
+          <div class="mb-3 w-100">
+            <label class="form-label" for="emailInput"
+              ><span class="text-muted small">{{form.email.label}}</span></label
+            >
+            {{form.email}}
+          </div>
+          <div class="mb-3 w-100">
+            <label for="passwordInput" class="form-label"
+              ><span class="text-muted small"
+                >{{form.password.label}}</span
+              ></label
+            >
+            {{form.password}}
+          </div>
+          <div class="mb-3 w-100">
+            <label for="passworConfirmdInput" class="form-label"
+              ><span class="text-muted small"
+                >{{form.password1.label}}</span
+              ></label
+            >
+            {{form.password1}}
+          </div>
+          <button class="btn btn-success mt-3" href="#" type="submit">Зарегистрироваться</button>
+          <div class="login__account">
+            <span class="text-muted me-3">* Если Вы зарегистрированы, то войти на сайт можно здесь</span>
+            <a href="{% url 'account:login' %}" role="button" class="btn btn-warning">Войти</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

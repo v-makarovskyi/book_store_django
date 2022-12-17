@@ -1,0 +1,93 @@
+{% load static %}
+
+<header class="header">
+  <div class="container">
+    <div class="row">
+      <div class="header__top col-lg-12 col-md-12">
+        <span>Работаем</span>
+        <img src="{% static 'assets/Flag_of_Ukraine.png' %}" alt="#" />
+        <span>для Вас!</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="header__center">
+        <div class="header__center__left col-lg-8 d-flex">
+          <div class="contact">
+            <img src="{% static 'assets/tel.webp' %}" alt="" />
+            <span>(044) 333-33-33</span>
+          </div>
+          <div class="contact">
+            <img src="{% static 'assets/mts.webp' %}" alt="" />
+            <span>(044) 333-33-33</span>
+          </div>
+          <div class="contact">
+            <img src="{% static 'assets/kievstar.webp' %}" alt="" />
+            <span>(044) 333-33-33</span>
+          </div>
+          <div class="contact">
+            <img src="{% static 'assets/lifecell_logo.webp' %}" alt="" />
+            <span>(044) 333-33-33</span>
+          </div>
+          <div class="contact">
+            <img src="{% static 'assets/call.webp' %}" alt="" />
+            <span>Обратная связь</span>
+          </div>
+        </div>
+        <div class="header__center__right col-lg-4">
+          <div class="location">
+            <img src="{% static 'assets/location.webp' %}" alt="" />
+            <span>Отследить заказ</span>
+          </div>
+          <ul class="navbar-nav navbar-nav text-center">
+            <li class="nav-item dropdown">
+              <a
+                className="nav-link dropdown-toggle"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-current="page"
+                href="#"
+                aria-expanded="false"
+              >
+                Мой аккаунт
+                <img src="{% static 'assets/user.webp' %}" alt="" />
+              </a>
+              <ul class="dropdown-menu p-2 mt-2">
+                <li class="register__open">Войти</li>
+                <li><hr class="dropdown-divider"></li>
+                <li class="wishlist">Список желаний</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="header__bottom">
+        <a href="{% url 'bookstore:home' %}">
+          <div class="header__bottom__logo col-lg-3 col-md-3">
+          <img src="{% static 'assets/logo.jpeg' %}" alt="logo" />
+        </div>
+        </a>
+        
+        <div class="header__bottom__search col-lg-7 col-md-7">
+          <div class="input-group mb-3">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Введите поисковой запрос"
+              aria-label="Recipient's username"
+              aria-describedby="button-addon2"
+            />
+            <button class="btn btn-warning" type="button" id="button-addon2">
+              Поиск
+            </button>
+          </div>
+        </div>
+        <div class="header__bottom__cart col-lg-2 col-md-2">
+          <img src="{% static 'assets/cart.webp' %}" alt="#" />
+          <div class="count">4</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

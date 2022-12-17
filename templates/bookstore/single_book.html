@@ -1,0 +1,189 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<div class="single__book mt-5 mb-5">
+  <div class="container">
+    <div class="row">
+      <div
+        class="big__menu__right__header w-100"
+        style="margin-top: -45px; margin-bottom: 30px"
+      >
+        <ul>
+          <li>ПОДАРИТЬ КНИГУ</li>
+          <li>НОВИНКИ</li>
+          <li>БЕСТСЕЛЛЕРЫ</li>
+          <li>ХИТЫ ПРОДАЖ</li>
+          <li>БЛОГ</li>
+        </ul>
+      </div>
+      {% include 'sidebar.html' %}
+      <div class="col-md-7 col-lg-7">
+        <div class="row justify-content-between">
+          <div class="col-md-4 col-lg-4">
+            <img src="{% static 'assets/test_book_img.webp' %}" alt="" />
+          </div>
+          <div class="col-md-8 col-lg-8">
+            <div class="single__book__wrapper" style="margin-left: 40px">
+              <h4 class="text-start">Бегущая с волками</h4>
+              <p class="single__book__author">Александр Пушкин</p>
+              <div class="rating d-flex align-items-center">
+                <div class="stars me-4">
+                  <img src="{% static 'assets/starsrating.webp' %}" alt="">
+                </div>
+                <span class="comment text-muted">11 комментариев</span>
+              </div>
+              <div class="single__book__detail">
+                <span class="pereplet">мягкий переплет</span>,
+                <span class="single__book__detail__pages">256</span> страниц,
+                <span class="single__book__detail__size">135*205 мм</span>
+              </div>
+              <hr />
+              <div class="price__today">
+                <span>Цена сегодня:</span>
+                <span class="price">190 грн</span>
+                <button class="btn btn-danger">В корзину</button>
+              </div>
+              <hr />
+              <p class="discount">Скидка: <span>10%</span></p>
+              <hr />
+              <p class="regular__price">
+                Регулярная цена: <span>209 грн</span>
+              </p>
+              <hr />
+            </div>
+          </div>
+        </div>
+        <div class="single__book__description">
+          <h4 class="single__book__description__title">Описание книги</h4>
+          <hr />
+          <div class="single__book__description__about">
+            <p>
+              Навряд чи проблеми, що навалилися на родину Ґоссів, є унікальними:
+              непорозуміння між поколіннями, нездатність почути одне одного та
+              звичка звинувачувати інших у власних невдачах. Найстарший член
+              сім’ї, дідусь Сандер — у депресії, бо не може змиритися зі смертю
+              дружини. Мати сімейства Джуліана важко переживає «декретну
+              ізоляцію», скучає за своєю адвокатською кар’єрою і мріє про
+              повернення на роботу. От тільки це не так просто — на ній будинок,
+              троє дітей і весь родинний побут. Її чоловік Гантер постійно
+              пропадає на роботі в надії на підвищення. Донька Елла переживає
+              підліткову кризу, а близнюки Ґаррет і Юен доводять усіх своїми
+              дитячими витівками. Добробут Ґоссів тріщить по швах... І коли
+              одного дня Елла приходить додому з маленьким цуценям на руках,
+              постає питання: чим чотирилапа несподіванка стане для кожного з
+              них? Ще однією проблемою чи маленьким кудлатим дивом, що об’єднає
+              родину? На Різдво може статися що завгодно...
+            </p>
+            <div class="about__author">
+              <h5>Об авторе:</h5>
+              <p>
+                Брюс Кемерон завжди мріяв стати письменником: свій перший
+                «роман» на 26 сторінок він написав у початковій школі, а вже в
+                шістнадцять надрукував оповідання в місцевій газеті. Відтоді
+                щодня прокидався на світанку, аби писати. І досяг небувалого
+                успіху! Зараз він автор найуспішнішої серії романів про пригоди
+                чотирилапих улюбленців. Ці історії вже не один рік тримаються у
+                списках бестселерів «USA Today», «The New York Times» та
+                «Publishers Weekly».
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="single__book__specific">
+          <h4 class="single__book__description__title">Характеристики:</h4>
+          <hr />
+          <div class="single__book__specific__item">
+            <div class="single__book__specific__item__left text-muted">
+              Код товара:
+            </div>
+            <div class="single__book__specific__item__right">123-456-78</div>
+          </div>
+          <div class="single__book__specific__item">
+            <div class="single__book__specific__item__left text-muted">
+              Название товара:
+            </div>
+            <div class="single__book__specific__item__right">
+              Бегущая с волками
+            </div>
+          </div>
+          <div class="single__book__specific__item">
+            <div class="single__book__specific__item__left text-muted">
+              Автор:
+            </div>
+            <div class="single__book__specific__item__right">
+              Александр Пушкин
+            </div>
+          </div>
+          <div class="single__book__specific__item">
+            <div class="single__book__specific__item__left text-muted">
+              Язык:
+            </div>
+            <div class="single__book__specific__item__right">русский</div>
+          </div>
+          <div class="single__book__specific__item">
+            <div class="single__book__specific__item__left text-muted">
+              Обложка:
+            </div>
+            <div class="single__book__specific__item__right">переплет</div>
+          </div>
+          <div class="single__book__specific__item">
+            <div class="single__book__specific__item__left text-muted">
+              Издательство:
+            </div>
+            <div class="single__book__specific__item__right">Сириус</div>
+          </div>
+          <div class="single__book__specific__item">
+            <div class="single__book__specific__item__left text-muted">
+              Язык оригинала:
+            </div>
+            <div class="single__book__specific__item__right">Русский</div>
+          </div>
+          <div class="single__book__specific__item">
+            <div class="single__book__specific__item__left text-muted">
+              Категория:
+            </div>
+            <div class="single__book__specific__item__right">
+              Современные авторы
+            </div>
+          </div>
+        </div>
+        <div class="comments">
+          <div class="comments__header">
+            <h4>Комментарии: <span>11</span></h4>
+            <div class="product__rating">
+              <span>Оценка товара:</span>
+              <img src="{% static 'assets/starsrating.webp' %}" alt="stars">
+            </div>
+          </div>
+          <form action="" method="post">
+            <textarea name="comment" id="comment" class="w-100" rows="6" placeholder="Ваш комментарий"></textarea>
+            <button class="btn btn-warning" type="submit">Комментировать</button>
+          </form>
+          <div class="comment__item">
+            <span class="comment__item__author">Игорь Петров</span>
+            <p class="commnt__item__text">
+              Хочу замовити цю книгу. Ідеальна для читання перед святами, вже
+              навіть по обкладинці захотілося Нового року та Різдва.
+            </p>
+            <div class="comment__item__date">
+                <span class="date text-muted">26 Окт 2022</span>
+                <span class="day text-muted">12:44</span>
+            </div>
+          </div>
+          <div class="comment__item">
+            <span class="comment__item__author">Игорь Петров</span>
+            <p class="commnt__item__text">
+              Хочу замовити цю книгу. Ідеальна для читання перед святами, вже
+              навіть по обкладинці захотілося Нового року та Різдва.
+            </p>
+            <div class="comment__item__date">
+                <span class="date text-muted">26 Окт 2022</span>
+                <span class="day text-muted">12:44</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block content %}
+
+<div class="register mb-5 mt-4">
+    <div class="container">
+      <div class="row justify-content-between">
+        {% include 'sidebar.html' %}
+        <div class="col-lg-7 col-md-7 auth__register">
+          <h3 class="text-muted mb-4">Войти</h3>
+         <form action="" method="post">
+             {% csrf_token %}
+            {% if form.errors %}
+            <p>Пожалуйста, исправьте следующие ошибки:</p>
+              {% for field in form %}
+                {% if field.errors %}
+                <div class="alert alert-primary">
+                  {{field.label}}: {{field.errors|striptags}}
+                </div>
+                {% endif %}
+              {% endfor %}
+            {% endif %}
+            <div class="mb-3 w-100">
+              <label class="form-label" for="emailInput"
+                ><span class="text-muted small">{{form.username.label}}</span></label
+              >
+              {{form.username}}
+            </div>
+            <div class="mb-3 w-100">
+              <label for="passwordInput" class="form-label"
+                ><span class="text-muted small"
+                  >{{form.password.label}}</span
+                ></label
+              >
+              {{form.password}}
+            </div>
+            <button class="btn btn-success mt-3" href="#" type="submit">Войти</button>
+            <div class="login__account">
+              <span class="text-muted me-3">* Если у Вас нет аккаунта, то зарегистрироваться можно здесь</span>
+              <a href="{% url 'account:register' %}" role="button" class="btn btn-warning">Регистрация</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

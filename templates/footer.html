@@ -1,0 +1,39 @@
+{% load static %}
+
+<footer class="footer">
+  <div class="container">
+    <div class="row" style="background:lightgray;">
+      <div class="col-12 footer__top">
+        <span>О магазине</span>
+        <span>Оплата</span>
+        <span>Доставка</span>
+        <span>Оптом</span>
+        <span>Помощь</span>
+        <span>Контакты</span>
+        <span>Конфиденциальность</span>
+        <span>Договор оферты</span>
+        <span>Карта сайта</span>
+        <span>Написать руководителю</span>
+      </div>
+      <div class="col-12 footer__center">
+        <div class="header__bottom__search col-lg-7 col-md-7">
+          <div class="input-group mb-3">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Введите свой email"
+              aria-label="Recipient's username"
+              aria-describedby="button-addon2"
+            />
+            <button class="btn btn-warning" type="button" id="button-addon2">
+              Подписаться
+            </button>
+          </div>
+        </div>
+        <div class="img__container" col-lg-5 col-md-5>
+            <img src="{% static 'assets/visa-mastercard-logos.png' %}" alt="visa">
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
