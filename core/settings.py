@@ -134,8 +134,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 AUTH_USER_MODEL = 'account.MyUser'
 
-LOGIN_REDIRECT_URL = " "
-LOGIN_URL = "/account/registration/register"
+LOGIN_REDIRECT_URL = "/account/profile_user"
+LOGIN_URL = "/account/login/"
 
 
 CKEDITOR_UPLOAD_PATH = 'uploads/'

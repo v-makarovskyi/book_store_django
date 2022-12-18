@@ -7,5 +7,8 @@ def home(request):
 def single_book(request):
     return render(request, 'bookstore/single_book.html')
 
+def order_summary(request):
+    return render(request, 'bookstore/order_summary.html')
+
 
 # Create your views here.

@@ -317,9 +317,25 @@ header {
 
 
 /*----------------------------Profile----------------------------------------*/
+.profile__wrapper {
+    border: 1px dotted red;
+    border-radius: 5px;
+    padding: 10px;
+    background: rgb(236, 234, 234);
+}
+
+.profile__wrapper a {
+    margin-bottom: 20px;
+}
 
 
 /*----------------------------Single_Book------------------------------------*/
+
+.single__book__header {
+    display: flex;
+    justify-content: space-between;
+}
+
 .rating {
     margin-bottom: 10px;
 }

@@ -1,4 +1,6 @@
-{% extends 'base.html' %} {% load static %} {% block content %}
+{% extends 'base.html' %} 
+{% load static %} 
+{% block content %}
 
 <div class="single__book mt-5 mb-5">
   <div class="container">
@@ -16,14 +18,18 @@
         </ul>
       </div>
       {% include 'sidebar.html' %}
-      <div class="col-md-7 col-lg-7">
+      <div class="col-md-8 col-lg-8">
         <div class="row justify-content-between">
           <div class="col-md-4 col-lg-4">
             <img src="{% static 'assets/test_book_img.webp' %}" alt="" />
           </div>
           <div class="col-md-8 col-lg-8">
             <div class="single__book__wrapper" style="margin-left: 40px">
-              <h4 class="text-start">Бегущая с волками</h4>
+              <div class="single__book__header">
+                <h4 class="text-start">Бегущая с волками</h4>
+                <a role="button" class="btn btn-danger" href="#">В список желаний</a>
+              </div>
+              
               <p class="single__book__author">Александр Пушкин</p>
               <div class="rating d-flex align-items-center">
                 <div class="stars me-4">
@@ -40,7 +46,7 @@
               <div class="price__today">
                 <span>Цена сегодня:</span>
                 <span class="price">190 грн</span>
-                <button class="btn btn-danger">В корзину</button>
+                <button class="btn btn-warning">Купить</button>
               </div>
               <hr />
               <p class="discount">Скидка: <span>10%</span></p>

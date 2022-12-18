@@ -1,5 +1,5 @@
 from django import forms
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm, UsernameField
 
 from .models import MyUser
 
@@ -40,7 +40,7 @@ class RegistrationForm(forms.ModelForm):
     
 
 class UserLoginForm(AuthenticationForm):
-    username = forms.CharField(label='Введите имя', max_length=150, 
+    username = UsernameField(label='Введите имя', max_length=150, 
                     error_messages={'обязательно':'Вы не предоставили email'}, 
                     widget=forms.TextInput(attrs={'class':'form-control'}))
     password = forms.CharField(label='Введите пароль', min_length=5, 

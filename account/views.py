@@ -8,6 +8,9 @@ from .models import MyUser
 
 def account_register(request):
 
+    if request.user.is_authenticated:
+        return redirect('account:profile')
+
     if request.method == 'POST':
         register_form = RegistrationForm(request.POST)
         if register_form.is_valid():
@@ -26,7 +29,25 @@ def account_register(request):
 
 
 def account_login(request):
-    login_form = UserLoginForm()
+
+    if request.user.is_authenticated:
+        return redirect('account:profile')
+
+    if request.POST.get('submit') == 'login':
+        login_form = UserLoginForm(data=request.POST)
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(request, username=username, password=password)
+        if user:
+            if user.is_active:
+                login(request, user)
+                return redirect('account:profile_user')
+            else:
+                return HttpResponse('Аккаунт не активен')
+        else:
+            return HttpResponse('Что-то пошло не так') 
+    else:
+        login_form = UserLoginForm()
     return render(request, 'account/login.html', {'form': login_form})
 
 

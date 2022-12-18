@@ -9,5 +9,5 @@ app_name = 'account'
 urlpatterns = [
     path('register/', account_register, name='register'),
     path('login/', account_login , name='login'),
-    path('profile/', profile, name='profile_user'),
+    path('profile/', profile, name='profile'),
 ]
