@@ -58,7 +58,7 @@ class MyUser(AbstractBaseUser, PermissionsMixin):
         'обязательное поле': _('Вы должны предоставить действительный адрес электронной почты.')})
     username = models.CharField(_('имя'), max_length=150, help_text=_(
         'Введите имя. Не более 150 символов'), validators=[username_validator])
-    phone = models.CharField(_('номер телефона'), max_length=10, blank=True)
+    phone = models.CharField(_('номер телефона'), max_length=20, blank=True)
     is_active = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True)
@@ -95,8 +95,8 @@ class Address(models.Model):
     address_line = models.CharField(_('адрес'), max_length=150)
     town_city = models.CharField(_('область/район/населенный пункт'), max_length=150)
     delivery_instruction = models.CharField(_('детали(доставка)'), max_length=255)
-    creatrd_at = models.DateTimeField(_('адрес добавлен'), auto_now_add=True)
-    updated_at = models.DateTimeField(_('адрес обновлен'), auto_now=True)
+    created = models.DateTimeField(_('адрес добавлен'), auto_now_add=True)
+    updated = models.DateTimeField(_('адрес обновлен'), auto_now=True)
     default = models.BooleanField(_('адрес по умолчанию'), default=False)
 
     class Meta:
