@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 from django.contrib.auth.admin import UserAdmin
-from .models import MyUser
+from .models import MyUser, Address
 
 class MyUserManager(UserAdmin):
     model = MyUser
@@ -15,10 +15,11 @@ class MyUserManager(UserAdmin):
     add_fieldsets = (
         (None, {
             'classes': ('wide',),
-            'fields': ('username', 'email', 'password', 'password1', 'phone', 'is_staff', 'is_active')
+            'fields': ('username', 'email', 'password1', 'password2', 'phone', 'is_staff', 'is_active')
         }),
     )
 
 
 admin.site.register(MyUser, MyUserManager)
+admin.site.register(Address)
 
