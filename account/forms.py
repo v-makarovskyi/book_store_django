@@ -9,7 +9,7 @@ class RegistrationForm(forms.ModelForm):
         label='Введите имя', max_length=50, help_text='* обязательное поле',
         widget=forms.TextInput(attrs={'class': 'form-control', 'id': 'usernameInput', }))
     email = forms.CharField(label='Ваш email', max_length=150, help_text='* обязательное поле',
-                            error_messages={'обязательно': 'Вы не продоставили email'}, 
+                            error_messages={'обязательно': 'Вы не предоставили email'}, 
                             widget=forms.EmailInput(attrs={'class': 'form-control', 'id': 'emailInput'}))
     password = forms.CharField(label='Введите пароль', min_length=5, 
                             widget=forms.PasswordInput(attrs={'class':'form-control', 'id': 'passwordlInput'}))
@@ -29,7 +29,7 @@ class RegistrationForm(forms.ModelForm):
     
     def check_password(self):
         cd = self.cleaned_data
-        if cd['password'] != cd['password1']:
+        if cd['password'] != cd['password2']:
             raise forms.ValidationError('Пароли не совпадают')
         return cd['password2']
 
@@ -40,7 +40,7 @@ class RegistrationForm(forms.ModelForm):
     
 
 class UserLoginForm(AuthenticationForm):
-    username = UsernameField(label='Введите имя', max_length=150, 
+    username = forms.CharField(label='Введите имя', max_length=150, 
                     error_messages={'обязательно':'Вы не предоставили email'}, 
                     widget=forms.TextInput(attrs={'class':'form-control'}))
     password = forms.CharField(label='Введите пароль', min_length=5, 
