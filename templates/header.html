@@ -47,14 +47,23 @@
                 aria-current="page"
                 href="#"
                 aria-expanded="false"
-              >
+              >{% if user.is_authenticated %}
+                Hi,  {{ request.user.username }}
+                {% else %}
                 Мой аккаунт
+                {% endif %}
                 <img src="{% static 'assets/user.webp' %}" alt="" />
               </a>
               <ul class="dropdown-menu p-2 mt-2">
-                <li class="register__open">Войти</li>
+                {% if user.is_authenticated %}
+                <li class="register__open"><a href="{% url 'account:dashboard' %}">Мой профиль</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li class="wishlist">Список желаний</li>
+                <li class="register__open"><a href="{% url 'account:login' %}">Список желаний</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li class="register__open"><a href="{% url 'account:logout' %}">Выйти</a></li>
+                {% else %}
+                <li class="register__open"><a href="{% url 'account:login' %}">Вoйти</a></li>
+                {% endif %}
               </ul>
             </li>
           </ul>
