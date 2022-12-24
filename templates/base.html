@@ -48,14 +48,13 @@
     <link rel="stylesheet" href="{% block stylesheet %}{% endblock %}" />
   </head>
   <body>
+    <div class="flex__wrapper">
+      {% include 'header.html' %} 
 
-    {% include 'header.html' %}
+      {% block content %} {% endblock %} 
 
-    {% block content %} {% endblock %}
-      
-    {% include 'footer.html' %}
-
-   
+      {% include 'footer.html' %}
+    </div>
 
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
     <script src="{% static 'js/main.js' %}"></script>
