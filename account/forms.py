@@ -1,5 +1,5 @@
 from django import forms
-from django.contrib.auth.forms import AuthenticationForm, PasswordResetForm
+from django.contrib.auth.forms import AuthenticationForm, PasswordResetForm, SetPasswordForm
 
 from .models import MyUser
 
@@ -52,12 +52,19 @@ class UserLoginForm(AuthenticationForm):
 
 
 class PwdResetForm(PasswordResetForm):
-    email = forms.EmailField(max_length=254, widget=forms.EmailInput(
-        attrs={'class': 'form-control', 'placeholder': 'Введите email',}))
-    
+    email = forms.EmailField(max_length=254, widget=forms.TextInput(
+        attrs={'class': 'form-control', 'placeholder': 'Введите email', }))
+
     def clean_email(self):
         email = self.cleaned_data['email']
         u = MyUser.objects.filter(email=email)
         if not u:
             raise forms.ValidationError('Email не найден')
         return email
+
+
+class PwdResetConfirmForm(SetPasswordForm):
+    new_password1 = forms.CharField(label='Новый пароль', widget=forms.PasswordInput(
+        attrs={'class': 'form-control', 'id': 'newpass1'}))
+    new_password2 = forms.CharField(label='Повторите новый пароль', widget=forms.PasswordInput(
+        attrs={'class': 'form-control', 'id': 'newpass2'}))
