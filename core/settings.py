@@ -134,8 +134,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 AUTH_USER_MODEL = 'account.MyUser'
 
-LOGIN_REDIRECT_URL = "/account/profile_user"
+LOGIN_REDIRECT_URL = "/account/dashboard"
 LOGIN_URL = "/account/login/"
+
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 
 CKEDITOR_UPLOAD_PATH = 'uploads/'
