@@ -39,6 +39,10 @@
               <span class="text-muted me-3">* Если у Вас нет аккаунта, то зарегистрироваться можно здесь</span>
               <a href="{% url 'account:register' %}" role="button" class="btn btn-warning">Регистрация</a>
             </div>
+            <div class="login__account">
+              <span class="text-muted me-3">* Забыли пароль?</span>
+              <a href="{% url 'account:pwdreset' %}" role="button" class="btn btn-danger">Восстановить</a>
+            </div>
           </form>
         </div>
       </div>
