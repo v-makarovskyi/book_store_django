@@ -52,13 +52,13 @@ def account_activate(request, uidb64, token):
     except(TypeError, ValueError, OverflowError, user.DoesNotExists):
         user = None
     
-    if user is not None and account_activation_token(user, token):
+    if user is not None and account_activation_token.check_token(user, token):
         user.is_active = True
         user.save()
+        login(request, user)
         return redirect('account:dashboard')
     else:
         return render(request, 'account/registration/activation_invalid.html')
-
 
 
 @login_required
