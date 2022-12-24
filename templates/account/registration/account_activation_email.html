@@ -1,0 +1,8 @@
+{% autoescape off %}
+
+Здравствуйте {{ user.username }},
+Ваша учетная запись успешно создана. Пожалуйста, перейдите по ссылке, чтобы активировать ее.
+
+http://{{ domain }}{% url 'account:activate' uidb64=uid token=token %}
+
+{% endautoescape %}
