@@ -47,4 +47,7 @@ urlpatterns = [
     path('profile/delete_user', views.delete_user, name='delete_user'),
     path('profile/delete_confirm', TemplateView.as_view(
         template_name='account/dashboard/delete_confirm.html'), name='delete_confirmation'),
+    path('addresses/', views.view_address, name='addresses'),
+    path('add_address/', views.add_address, name='add_address'),
+    path('addresses/edit_address/<slug:id>/', views.edit_address, name='edit_address'),
 ]
