@@ -71,12 +71,12 @@ class PwdResetConfirmForm(SetPasswordForm):
 
 
 class UserEditForm(forms.ModelForm):
-    email = forms.EmailField(label='Электронная почта аккаунта (не может быть изменена)', max_length=200, widget=forms.EmailInput(
-        attrs={'class': 'form-control', 'placeholder': 'Email', 'id': 'emailInput', 'readonly': 'readonly'}))
+    email = forms.EmailField(label='Электронная почта аккаунта (не может быть изменена)', max_length=200, widget=forms.TextInput(
+        attrs={'class': 'form-control', 'placeholder': 'Email', 'id': 'floatingEmail', 'readonly': 'readonly'}))
     username = forms.CharField(label='имя пользователя', max_length=150, widget=forms.TextInput(
-        attrs={'class': 'form-control', 'placeholder': 'Введите имя', 'id': 'usernameInput'}))
+        attrs={'class': 'form-control', 'placeholder': 'Введите имя', 'id': 'floatingUsername'}))
     phone = forms.CharField(label='Номер телефона', max_length=30, widget=forms.TextInput(
-        attrs={'class': 'form-control', 'placeholder': 'номер телефона', 'id': 'phoneInput'}))
+        attrs={'class': 'form-control', 'placeholder': 'Номер телефона', 'id': 'floatingPhone'}))
 
     class Meta:
         model = MyUser
