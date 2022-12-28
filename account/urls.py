@@ -18,6 +18,7 @@ urlpatterns = [
         auth_views.PasswordResetView.as_view(
             template_name="account/password_reset/password_reset_form.html",
             success_url='password_reset_email_confirm',
+            subject_template_name='account/password_reset/password_reset_subject.txt',
             email_template_name="account/password_reset/password_reset_email.html",
             form_class=PwdResetForm,
         ),
@@ -40,4 +41,5 @@ urlpatterns = [
         name="password_reset_complete",
     ),
     path('dashboard/', views.dashboard, name='dashboard'),
+    path('profile/edit/', views.edit_details, name='edit_details'),
 ]
