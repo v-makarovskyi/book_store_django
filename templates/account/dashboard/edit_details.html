@@ -35,6 +35,13 @@
             <label for="floatingPhone"><span class="text-muted small">{{user_form.phone.label}}</span></label>
         </div>
         <button type="submit" class="btn btn-warning w-100 mt-3 p-2">Сохранить изменения</button>
+        <hr class="mb-5">
+    </form>
+    <form class="d-flex flex-column" action="{% url 'account:delete_user' %}" method="post" style="border:1px solid red; padding: 20px;">
+        {% csrf_token %}
+        <h3 class="text-center" style="color: red;">Удалить профиль</h3>
+        <p class="text-center text-muted">Здесь Вы можете удалить свой профиль пользователя</p>
+        <button type="submit" role="button" class="btn btn-danger align-self-center">Удалить профиль</button>
     </form>
 </div>
 
