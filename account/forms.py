@@ -68,3 +68,21 @@ class PwdResetConfirmForm(SetPasswordForm):
         attrs={'class': 'form-control', 'id': 'newpass1'}))
     new_password2 = forms.CharField(label='Повторите новый пароль', widget=forms.PasswordInput(
         attrs={'class': 'form-control', 'id': 'newpass2'}))
+
+
+class UserEditForm(forms.ModelForm):
+    email = forms.EmailField(label='Электронная почта аккаунта (не может быть изменена)', max_length=200, widget=forms.EmailInput(
+        attrs={'class': 'form-control', 'placeholder': 'Email', 'id': 'emailInput', 'readonly': 'readonly'}))
+    username = forms.CharField(label='имя пользователя', max_length=150, widget=forms.TextInput(
+        attrs={'class': 'form-control', 'placeholder': 'Введите имя', 'id': 'usernameInput'}))
+    phone = forms.CharField(label='Номер телефона', max_length=30, widget=forms.TextInput(
+        attrs={'class': 'form-control', 'placeholder': 'номер телефона', 'id': 'phoneInput'}))
+
+    class Meta:
+        model = MyUser
+        fields = ['email', 'username', 'phone']
+    
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['email'].required = True
+        self.fields['username'].required = True
