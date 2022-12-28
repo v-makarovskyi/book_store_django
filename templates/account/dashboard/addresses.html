@@ -14,7 +14,7 @@
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
           <div class="col">
             <a
-              href="#"
+              href="{% url 'account:add_address' %}"
               role="button"
               class="text-reset text-decoration-none"
               style="max-width: 540px"
@@ -51,7 +51,7 @@
                         <p class="card-text m-0">Почтовый код: {{address.postcode}}</p>
                         <p class="card-text m-0">Номер тел.: {{address.phone}}</p>
                         <div class="pt-5">
-                            <a href="#" class="text-decoration-none" style="color: red;">Обновить</a>
+                            <a href="{% url 'account:edit_address' address.id %}" class="text-decoration-none" style="color: red;">Обновить</a>
                             |
                             <a href="#" class="text-decoration-none" style="color: red;">Удалить</a>
                             |
