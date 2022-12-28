@@ -1,0 +1,70 @@
+{% extends 'base.html' %} 
+{% block title %}Адресса пользователя{% endblock %} 
+{%block content %}
+
+<div class="container">
+  <div class="d-flex align-items-center">
+    <div class="col-12 col-md-12 col-lg-12 mx-auto">
+      <h2 class="text-center" style="color: red;">Мои адреса</h2>
+      <div class="text-center">
+        Управляйте своими <b>адресами</b> и <b>деталями</b> доставки
+      </div>
+      <hr />
+      <div class="container px-0">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+          <div class="col">
+            <a
+              href="#"
+              role="button"
+              class="text-reset text-decoration-none"
+              style="max-width: 540px"
+            >
+                <div class="card mb-3 h-100" style="border: 2px dashed red;">
+                    <div class="row h-100 g-0">
+                        <div class="col-12" style="min-height: 100px;">
+                            <div class="card-body text-center position-absolute top-50 start-50 translate-middle">
+                                <svg style="color:red;" xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor"
+                                class="bi bi-plus" viewBox="0 0 16 16">
+                                <path
+                                  d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                              </svg>
+                              <h5 style="color: grey;">Добавить адрес</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+          </div>
+          {% for address in addresses %}
+            <div class="col">
+                <div class="card pb-3 h-100">
+                    <div class="card-header bg-white small text-muted">
+                        {% if address.default %}
+                            По умолчанию
+                        {% endif %}
+                        &nbsp;
+                    </div>
+                    <div class="card-body small pb-1">
+                        <p class="card-text m-0 fw-bold">{{address.full_name}}</p>
+                        <p class="card-text m-0">Адрес: {{address.address_line}}</p>
+                        <p class="card-text m-0">Наседенный пункт: {{address.town_city}}</p>
+                        <p class="card-text m-0">Почтовый код: {{address.postcode}}</p>
+                        <p class="card-text m-0">Номер тел.: {{address.phone}}</p>
+                        <div class="pt-5">
+                            <a href="#" class="text-decoration-none" style="color: red;">Обновить</a>
+                            |
+                            <a href="#" class="text-decoration-none" style="color: red;">Удалить</a>
+                            |
+                            <a href="#" class="text-decoration-none" style="color: red;">По умолчанию</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
