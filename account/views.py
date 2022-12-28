@@ -67,11 +67,11 @@ def dashboard(request):
 
 @login_required
 def edit_details(request):
-    isinstance = request.user
+    instance = request.user
     if request.method == 'POST':
-        user_form = UserEditForm(request.POST, isinstance=isinstance)
+        user_form = UserEditForm(request.POST, instance=instance)
         if user_form.is_valid():
             user_form.save()
     else:
-        user_form = UserEditForm()
+        user_form = UserEditForm(instance=instance)
     return render(request, 'account/dashboard/edit_details.html', {'user_form': user_form})
