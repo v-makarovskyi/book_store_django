@@ -39,10 +39,10 @@ def account_register(request):
             user.email_user(subject=subject, message=message)
             return render(request, 'account/registration/register_email_confirm.html', {'form': register_form})
         else:
-            return HttpResponse('Ошибка обработки данных', status=400)
+            return render(request, 'account/registration/register.html', {'form': register_form})
     else:
         register_form = RegistrationForm()
-        return render(request, 'account/registration/register.html', {'form': register_form})
+    return render(request, 'account/registration/register.html', {'form': register_form})
     
 
 def account_activate(request, uidb64, token):
@@ -75,3 +75,11 @@ def edit_details(request):
     else:
         user_form = UserEditForm(instance=instance)
     return render(request, 'account/dashboard/edit_details.html', {'user_form': user_form})
+
+@login_required
+def delete_user(request):
+    user = MyUser.objects.get(username=request.user)
+    user.is_active = False
+    user.save()
+    logout(request)
+    return redirect('account:delete_confirmation')
