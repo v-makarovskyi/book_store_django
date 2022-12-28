@@ -8,29 +8,38 @@
       {% include 'sidebar.html' %}
       <div class="col-lg-7 col-md-7 auth__register">
         <h3 class="text-muted mb-4">Регистрация</h3>
-       <form action="" method="post">
-           {% csrf_token %}
+        <form action="" method="post">
+          {% csrf_token %} 
           {% if form.errors %}
           <p>Пожалуйста, исправьте следующие ошибки:</p>
-            {% for field in form %}
-              {% if field.errors %}
-              <div class="alert alert-primary">
-                {{field.label}}: {{field.errors|striptags}}
-              </div>
-              {% endif %}
-            {% endfor %}
+          {% for field in form %} 
+          {% for error in field.errors %}
+          <div class="alert alert-primary">
+            {{field.label}}: {{field.errors|striptags}}
+          </div>
+          {% endfor %} 
+          {% endfor %} 
           {% endif %}
+
           <div class="mb-3 w-100">
-            <label class="form-label" for="emailInput"
-              ><span class="text-muted small">{{form.username.label}}</span></label
+            <label class="form-label" for="usernameInput"
+              ><span class="text-muted small"
+                >{{form.username.label}}</span
+              ></label
             >
-            {{form.username}}
+            {{form.username}} 
+            {% if form.username.help_text %}
+            <small style="color: grey">{{ form.username.help_text }}</small>
+            {% endif %}
           </div>
           <div class="mb-3 w-100">
             <label class="form-label" for="emailInput"
               ><span class="text-muted small">{{form.email.label}}</span></label
             >
-            {{form.email}}
+            {{form.email}} 
+            {% if form.email.help_text %}
+            <small style="color: grey">{{ form.email.help_text }}</small>
+            {% endif %}
           </div>
           <div class="mb-3 w-100">
             <label for="passwordInput" class="form-label"
@@ -48,10 +57,19 @@
             >
             {{form.password1}}
           </div>
-          <button class="btn btn-success mt-3" type="submit">Зарегистрироваться</button>
+          <button class="btn btn-success mt-3" type="submit">
+            Зарегистрироваться
+          </button>
           <div class="login__account">
-            <span class="text-muted me-3">* Если Вы зарегистрированы, то войти на сайт можно здесь</span>
-            <a href="{% url 'account:login' %}" role="button" class="btn btn-warning">Войти</a>
+            <span class="text-muted me-3"
+              >* Если Вы зарегистрированы, то войти на сайт можно здесь</span
+            >
+            <a
+              href="{% url 'account:login' %}"
+              role="button"
+              class="btn btn-warning"
+              >Войти</a
+            >
           </div>
         </form>
       </div>
