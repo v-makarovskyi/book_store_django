@@ -83,3 +83,9 @@ def delete_user(request):
     user.save()
     logout(request)
     return redirect('account:delete_confirmation')
+
+
+@login_required
+def view_address(request):
+    addresses = Address.objects.filter(owner=request.user)
+    return render(request, 'account/dashboard/addresses.html', {'addresses': addresses})
