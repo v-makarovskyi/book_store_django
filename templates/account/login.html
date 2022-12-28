@@ -11,14 +11,7 @@
          <form action="" method="post">
              {% csrf_token %}
             {% if form.errors %}
-            <p>Пожалуйста, исправьте следующие ошибки:</p>
-              {% for field in form %}
-                {% if field.errors %}
-                <div class="alert alert-primary">
-                  {{field.label}}: {{field.errors|striptags}}
-                </div>
-                {% endif %}
-              {% endfor %}
+            <p style="color: red;">Имя пользователя или пароль введены некорректно!</p>
             {% endif %}
             <div class="mb-3 w-100">
               <label class="form-label" for="emailInput"
