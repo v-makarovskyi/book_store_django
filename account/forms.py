@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm, PasswordResetForm, SetPasswordForm
 
-from .models import MyUser
+from .models import MyUser, Address
 
 
 class RegistrationForm(forms.ModelForm):
@@ -86,3 +86,25 @@ class UserEditForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.fields['email'].required = True
         self.fields['username'].required = True
+
+class UserAddressForm(forms.ModelForm):
+    class Meta:
+        model = Address
+        fields = ['full_name', 'phone', 'address_line', 'town_city', 'postcode',]
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields["full_name"].widget.attrs.update(
+            {'class':'form-control','id':'floatingName',"placeholder": "Полное имя"}
+        )
+        self.fields["phone"].widget.attrs.update(
+            {'class':'form-control','id':'floatingAddress', "placeholder": "Номер телефона"})
+        self.fields["address_line"].widget.attrs.update(
+            {'class':'form-control','id':'floatingAddress',"placeholder": "Адрес"}
+        )
+        self.fields["town_city"].widget.attrs.update(
+            {'class':'form-control','id':'floatingCity',"placeholder": "Населенный пункт"}
+        )
+        self.fields["postcode"].widget.attrs.update(
+            {'class':'form-control','id':'floatingPostcode',"placeholder": "Почтовый индекс"}
+        )
