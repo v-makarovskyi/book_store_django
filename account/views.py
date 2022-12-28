@@ -11,7 +11,7 @@ from django.utils.encoding import force_bytes, force_str
 from django.urls import reverse
 
 from .models import MyUser, Address
-from .forms import RegistrationForm, UserEditForm
+from .forms import RegistrationForm, UserEditForm, UserAddressForm
 from .tokens import account_activation_token
 
 def account_register(request):
@@ -89,3 +89,31 @@ def delete_user(request):
 def view_address(request):
     addresses = Address.objects.filter(owner=request.user)
     return render(request, 'account/dashboard/addresses.html', {'addresses': addresses})
+
+@login_required
+def add_address(request):
+    if request.method =='POST':
+        address_form = UserAddressForm(request.POST)
+        if address_form.is_valid():
+            address_form = address_form.save(commit=False)
+            address_form.owner = request.user
+            address_form.save()
+            return HttpResponseRedirect(reverse('account:addresses'))
+        else:
+            return render(request, 'account/dashboard/edit_address.html', {'form':address_form})
+    else:
+        address_form = UserAddressForm()
+    return render(request, 'account/dashboard/edit_address.html', {'form':address_form})
+
+@login_required
+def edit_address(request, id):
+    if request.method == 'POST':
+        address = Address.objects.get(pk=id, owner=request.user)
+        address_form = UserAddressForm(request.POST, instance=address)
+        if address_form.is_valid():
+            address_form.save()
+            return HttpResponseRedirect(reverse('account:addresses'))
+    else:
+        address = Address.objects.get(pk=id, owner=request.user)
+        address_form = UserAddressForm(instance=address)
+    return render(request, 'account/dashboard/edit_address.html', {'form': address_form})
