@@ -11,7 +11,7 @@ from django.utils.encoding import force_bytes, force_str
 from django.urls import reverse
 
 from .models import MyUser, Address
-from .forms import RegistrationForm
+from .forms import RegistrationForm, UserEditForm
 from .tokens import account_activation_token
 
 def account_register(request):
@@ -64,3 +64,14 @@ def account_activate(request, uidb64, token):
 @login_required
 def dashboard(request):
     return render(request, 'account/dashboard/dashboard.html', {})
+
+@login_required
+def edit_details(request):
+    isinstance = request.user
+    if request.method == 'POST':
+        user_form = UserEditForm(request.POST, isinstance=isinstance)
+        if user_form.is_valid():
+            user_form.save()
+    else:
+        user_form = UserEditForm()
+    return render(request, 'account/dashboard/edit_details.html', {'user_form': user_form})
