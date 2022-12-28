@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %}Редактирование профиля{% endblock %}
+
+{% block content %}
+
+<div class="col-12 col-sm-8 col-md-5 mx-auto mb-5">
+    <form method="post" enctype="multipart/form-data">
+        {% if user_form.is_valid %}
+            <div class="alert alert-success">
+                Профиль успешно обновлен!
+            </div>
+            <p class="small text-center" style="color: red;">
+                <a href="{% url 'account:dashboard' %}">Вернуться на страницу профиля  <i class="fa-solid fa-arrow-right"></i></a>
+            </p>
+        {% else %}
+            <h3 class="text-center" style="color: red;">Изменить данные профиля</h3>
+            <p class="text-center">Вы можете редактировать данные своего профиля, используя следующую форму:</p>
+        {% endif %}
+        {% if form.errors %}
+            <div class="alert alerd-danger">
+                Ошибка! Попробуйте еще раз!
+            </div>
+        {% endif %}
+        {% csrf_token %}
+        <div class="form-floating mb-3 w-100">
+            {{user_form.email}}
+            <label class="form-label" for="floatingEmail"><span class="text-muted small">{{user_form.email.label}}</span></label>
+        </div>
+        <div class="form-floating mb-3 w-100">
+            {{user_form.username}}
+            <label class="form-label" for="floatingUsername"><span class="text-muted small">{{user_form.username.label}}</span></label>
+        </div>
+        <div class="form-floating mb-3 w-100">
+            {{user_form.phone}}
+            <label for="floatingPhone"><span class="text-muted small">{{user_form.phone.label}}</span></label>
+        </div>
+        <button type="submit" class="btn btn-warning w-100 mt-3 p-2">Сохранить изменения</button>
+    </form>
+</div>
+
+{% endblock %}
