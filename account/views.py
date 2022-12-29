@@ -117,3 +117,16 @@ def edit_address(request, id):
         address = Address.objects.get(pk=id, owner=request.user)
         address_form = UserAddressForm(instance=address)
     return render(request, 'account/dashboard/edit_address.html', {'form': address_form})
+
+@login_required
+def delete_address(request, id):
+    Address.objects.get(pk=id, owner=request.user).delete()
+    return redirect('account:addresses')
+
+@login_required
+def default_address(request, id):
+    if Address.objects.filter(pk=id, owner=request.user, default=True):
+        Address.objects.filter(pk=id, owner=request.user, default=True).update(default=False)
+    else:
+        Address.objects.filter(pk=id, owner=request.user).update(default=True)
+    return redirect('account:addresses')
