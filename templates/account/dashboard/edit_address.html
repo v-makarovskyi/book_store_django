@@ -2,7 +2,7 @@
 {% block title %}Добавить адрес{% endblock %} 
 {% block content %}
 <div class="container">
-  <div class="col-12 col-md-8 mx-auto">
+  <div class="col-12 col-md-6 mx-auto">
     <h3 class="text-center" style="color: red">Добавить или изменить адрес</h3>
     <p class="text-center">
       Добавьте новый <b>адресс</b> и детали <b>доставки</b>
@@ -37,7 +37,7 @@
         {{form.postcode}}
         <label for="floatingPostcode" class="form-label"><span class="text-muted small">{{form.postcode.label}}</span></label>
       </div>
-      <button class="btn btn-success btn-block fw-bold w-100 py-2 mt-4 mb-4">Добавить адрес</button>
+      <button class="btn btn-warning btn-block  w-100 py-2 mt-4 mb-4" type="submit">Добавить адрес</button>
     </form>
   </div>
 </div>
