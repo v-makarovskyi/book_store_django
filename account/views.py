@@ -10,9 +10,26 @@ from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.encoding import force_bytes, force_str
 from django.urls import reverse
 
+from bookstore.models import Book
 from .models import MyUser, Address
 from .forms import RegistrationForm, UserEditForm, UserAddressForm
 from .tokens import account_activation_token
+
+@login_required
+def user_wishlist(request):
+    books = Book.objects.filter(user_wishlist=request.user)
+    return render(request, 'acount:user_wishlist', {'wishlist':books})
+
+
+@login_required
+def add_to_wishlist(request, id):
+    book = get_object_or_404(Book, id=id)
+    if book.user_wishlist.filter(id=request.user.id).exists():
+        book.user_wishlist.remove(request.user)
+    else:
+        book.user_wishlist.add(request.user)
+    return HttpResponseRedirect(request.META['HTTP_REFERER'])
+
 
 def account_register(request):
     if request.user.is_authenticated:
