@@ -11,7 +11,7 @@
       </div>
       <hr />
       <div class="container px-0">
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 mb-4">
           <div class="col">
             <a
               href="{% url 'account:add_address' %}"
@@ -53,9 +53,15 @@
                         <div class="pt-5">
                             <a href="{% url 'account:edit_address' address.id %}" class="text-decoration-none" style="color: red;">Обновить</a>
                             |
-                            <a href="#" class="text-decoration-none" style="color: red;">Удалить</a>
+                            <a href="{% url 'account:delete_address' address.id %}" class="text-decoration-none" style="color: red;">Удалить</a>
                             |
-                            <a href="#" class="text-decoration-none" style="color: red;">По умолчанию</a>
+                            <a href="{% url 'account:default_address' address.id %}" class="text-decoration-none" style="color: red;">
+                              {% if address.default %}
+                                Сделать не по умолчанию
+                              {% else %}
+                                 По умолчанию
+                              {% endif %}
+                            </a>
                         </div>
                     </div>
                 </div>
