@@ -110,13 +110,13 @@ class Book(models.Model):
     )
 
     category = models.ForeignKey(
-        Category, verbose_name='рубрика', on_delete=models.RESTRICT)
+        Category, verbose_name='рубрика', related_name='book', on_delete=models.RESTRICT)
     product_type = models.ForeignKey(
         ProductType, verbose_name='тип товара', on_delete=models.RESTRICT)
     publisher = models.ForeignKey(
         Publisher, verbose_name='Издательство', on_delete=models.RESTRICT)
     author = models.ForeignKey(
-        Author, verbose_name='автор', on_delete=models.RESTRICT)
+        Author, verbose_name='автор', related_name='book', on_delete=models.RESTRICT)
     title = models.CharField('Название', max_length=150,
                          help_text='* Обязательное поле')
     image = models.ImageField(
@@ -129,11 +129,12 @@ class Book(models.Model):
     age = models.CharField('возраст', max_length=15,
                        choices=AGE_CHOICES, default='18+')
     pages = models.CharField('количество страниц', max_length=10)
+    code_book = models.CharField('код товара', max_length=10, default=7)
     size = models.CharField('Размеры книги', max_length=20,
                         help_text='Укажите физический размер книги')
     slug = models.SlugField(max_length=255, unique=True)
     price = models.CharField('цена', max_length=4)
-    discount_price = models.FloatField(blank=True, null=True)
+    discount = models.IntegerField(default=10)
     is_active = models.BooleanField(
         'доступность продукта', help_text='выберите доступность продукта', default=True)
     created = models.DateTimeField('создан', auto_now_add=True, editable=True)
@@ -153,10 +154,14 @@ class Book(models.Model):
     def add_to_cart(self):
         return reverse('orders:add_to_cart', kwargs={'slug': self.category.slug, 'book_slug': self.slug})
 
+    def get_discount_price(self):
+        discount_price = self.price - (self.price * (self.discount/100))
+        return discount_price
+
 
 class BookSpecificValue(models.Model):
     """Модель значений спецификаций и свойств товара"""
-    book = models.ForeignKey(Book, verbose_name='Книга',
+    book = models.ForeignKey(Book, verbose_name='Книга', related_name='specifics',
                              on_delete=models.CASCADE)
     specification = models.ForeignKey(
         BookSpecific, verbose_name='Выберите из списка', on_delete=models.RESTRICT)
