@@ -42,6 +42,8 @@ urlpatterns = [
             template_name="account/password_reset/reset_status.html"),
         name="password_reset_complete",
     ),
+    path('wishlist/', views.wishlist, name='wishlist'),
+    path('wishlist/add_to_wishlist/<int:id>/', views.add_to_wishlist, name='user_wishlist'),
     path('dashboard/', views.dashboard, name='dashboard'),
     path('profile/edit/', views.edit_details, name='edit_details'),
     path('profile/delete_user', views.delete_user, name='delete_user'),
