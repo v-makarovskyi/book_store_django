@@ -10,8 +10,11 @@ class HomeView(ListView):
 def books(request):
     return render(request, 'bookstore/books.html')
 
-def single_book(request):
-    return render(request, 'bookstore/single_book.html')
+class BookDetailView(DetailView):
+    model = Book
+    context_object_name = 'book'
+    slug_url_kwarg = 'book_slug'
+    template_name = 'bookstore/single_book.html'
 
 def order_summary(request):
     return render(request, 'bookstore/order_summary.html')
