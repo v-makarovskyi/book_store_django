@@ -9,8 +9,12 @@
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 mt-4 g-3">
       {% for book in book_list %}
       <div class="col">
-        <div class="card h-100">
-          <img src="{{ book.image.url }}" alt="test" />
+        
+           <div class="card h-100">
+            <a href="{{ book.get_absolute_url }}">
+               <img class="card-img-top" src="{{ book.image.url }}" alt="test" />
+            </a>
+         
           <div class="card-body d-flex flex-column justify-content-between">
             <h6 class="card-title">
               {{ book.title }}
@@ -19,28 +23,13 @@
               <span>Цена:</span>
               <div class="price">{{book.price}} грн</div>
             </div>
-             </div>
+          </div>
              <div class="card-footer mt-0" style="background: none; border:none">
                  <a role="button" href="#" class="btn btn-warning" style="width: 100%;">В корзину</a>
              </div>
          </div>
-      </div>
-      <div class="col">
-        <div class="card h-100">
-          <img src="{% static 'assets/test_book_img.webp' %}" alt="test" />
-          <div class="card-body  d-flex flex-column justify-content-between">
-            <h6 class="card-title">
-              Книга Бегущая с волками. Женский архетип в мифах и сказаниях
-            </h6>
-            <div class="product__price">
-              <span>Цена:</span>
-              <div class="price">330 грн</div>
-            </div>
-             </div>
-             <div class="card-footer mt-0" style="background: none; border:none">
-                 <a role="button" href="#" class="btn btn-warning" style="width: 100%;">В корзину</a>
-             </div>
-         </div>
+      
+       
       </div>
       {% endfor %}
     </div>
