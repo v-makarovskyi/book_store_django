@@ -109,7 +109,6 @@ class Book(models.Model):
         ('f', '18+'),
     )
 
-
     category = models.ForeignKey(
         Category, verbose_name='рубрика', on_delete=models.RESTRICT)
     product_type = models.ForeignKey(
