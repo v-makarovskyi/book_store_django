@@ -253,7 +253,6 @@ header {
   padding: 10px;
   margin-bottom: 30px;
 }
-
 .card-body .card-title {
   color: grey;
 }
@@ -266,7 +265,7 @@ header {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-top: -30px;
+  margin-bottom: 20px;
 }
 
 .card-body .product__price span {
@@ -503,14 +502,13 @@ form {
 }
 
 .footer__top span {
-  min-width: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
   border: 1px solid white;
   background: grey;
-  padding: 5px;
-  font-size: 12px;
+  padding: 7px;
+  font-size: 15px;
   color: white;
 }
 
@@ -531,9 +529,4 @@ form {
   .container {
     max-width: 1170px;
   }
-}
-
-/* Tablet Device = 768px */
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-
 }

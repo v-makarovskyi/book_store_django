@@ -1,14 +1,8 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView
-from .models import Book
+from django.views.generic import ListView
 
-class HomeView(ListView):
-    model = Book
-    paginate_by = 9
-    template_name = 'bookstore/home.html'
-
-def books(request):
-    return render(request, 'bookstore/books.html')
+def home(request):
+    return render(request, 'bookstore/home.html')
 
 def single_book(request):
     return render(request, 'bookstore/single_book.html')
