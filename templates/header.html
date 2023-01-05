@@ -58,7 +58,7 @@
                 {% if user.is_authenticated %}
                 <li class="register__open"><a href="{% url 'account:dashboard' %}">Мой профиль</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li class="register__open"><a href="{% url 'account:login' %}">Список желаний</a></li>
+                <li class="register__open"><a href="{% url 'account:wishlist' %}">Список желаний</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li class="register__open"><a href="{% url 'account:logout' %}">Выйти</a></li>
                 {% else %}
