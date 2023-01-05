@@ -16,9 +16,9 @@ from .forms import RegistrationForm, UserEditForm, UserAddressForm
 from .tokens import account_activation_token
 
 @login_required
-def user_wishlist(request):
+def wishlist(request):
     books = Book.objects.filter(user_wishlist=request.user)
-    return render(request, 'acount:user_wishlist', {'wishlist':books})
+    return render(request, 'account/dashboard/user_wishlist.html', {'wishlist':books})
 
 
 @login_required
