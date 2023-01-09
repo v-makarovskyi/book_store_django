@@ -110,7 +110,7 @@ class Book(models.Model):
     )
 
     category = models.ForeignKey(
-        Category, verbose_name='рубрика', related_name='book', on_delete=models.RESTRICT)
+        Category, verbose_name='рубрика', on_delete=models.RESTRICT)
     product_type = models.ForeignKey(
         ProductType, verbose_name='тип товара', on_delete=models.RESTRICT)
     publisher = models.ForeignKey(
