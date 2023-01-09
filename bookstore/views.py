@@ -7,8 +7,12 @@ class HomeView(ListView):
     paginate_by = 9
     template_name = 'bookstore/home.html'
 
-def books(request):
-    return render(request, 'bookstore/books.html')
+class CategoryListView(ListView):
+    model = Book
+    template_name = 'bookstore/book_list.html'
+    
+    def get_queryset(self):
+        return Book.objects.filter(category__slug=self.kwargs.get('slug')).select_related('category')
 
 class BookDetailView(DetailView):
     model = Book
