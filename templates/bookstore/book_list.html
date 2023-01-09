@@ -1,0 +1,49 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block content %}
+
+<div class="category__list">
+  <div class="container">
+    <div class="row mt-4">
+      {% for book in book_list %}
+      <div class="col-12 mb-2">
+        <h3 style="color: #ffc107;">Рубрика: {{ book.category.name }}</h3>
+        <p style="font-size: 14;" class="text-muted">Количество наименований книг: {{forloop.counter}}</p>
+      </div>
+      {% include 'bookstore/include/sidebar_filter.html' %}
+      <div class="col-md-9 col-lg-9">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+      
+      <div class="col">
+        <div class="card h-100">
+          <a href="{{ book.get_absolute_url }}">
+            <img class="card-img-top" src="{{ book.image.url }}" alt="test" />
+          </a>
+
+          <div class="card-body d-flex flex-column justify-content-between">
+            <h6 class="card-title">{{ book.title }}</h6>
+            <div class="product__price">
+              <span>Цена:</span>
+              <div class="price">{{book.price}} грн</div>
+            </div>
+          </div>
+          <div class="card-footer mt-0" style="background: none; border: none">
+            <a
+              role="button"
+              href="#"
+              class="btn btn-warning"
+              style="width: 100%"
+              >В корзину</a
+            >
+          </div>
+        </div>
+      </div>
+     
+    </div>
+      </div>
+    </div>
+     {% endfor %}
+  </div>
+</div>
+
+{% include 'detail.html' %} {% endblock %}
