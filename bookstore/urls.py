@@ -5,7 +5,7 @@ app_name = 'bookstore'
 
 urlpatterns = [
     path('', HomeView.as_view(), name='home'),
-    path('<slug:slug>/',  CategoryListView.as_view(), name='category_list'), 
-    path('<slug:slug>/<slug:book_slug>/', BookDetailView.as_view(), name='single_book'),
+    path('category/<slug:slug>/',  CategoryListView.as_view(), name='category_list'), 
+    path('book/<slug:slug>/<slug:book_slug>/', BookDetailView.as_view(), name='single_book'),
     path('order/', order_summary, name='order'),
 ]
