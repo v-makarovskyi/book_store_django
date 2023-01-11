@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'mptt',
     "account",
     "bookstore",
+    "checkout",
     'ckeditor',
     'ckeditor_uploader',
 ]
