@@ -526,6 +526,29 @@ form {
   height: 60px;
 }
 
+
+/*------------------------ORDER--------------------------*/
+.cart__select__amount {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cart__select__amount p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid grey;
+  padding: 3px 25px;
+}
+
+.cart__select__amount .amount button:last-child {
+  margin-left: 10px;
+}
+
+
 /*------------------------Responsive Media Quaries--------------------------*/
 @media only screen and (min-width: 1200px) {
   .container {
