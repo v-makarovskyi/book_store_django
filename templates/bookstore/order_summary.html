@@ -1,16 +1,320 @@
-{% extends 'base.html' %}
-{% load static %}
-
-{% block content %}
+{% extends 'base.html' %} {% load static %} {% block content %}
 
 <div class="order__summary">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4 col-md-4"></div>
-            <div class="col-lg-4 col-md-4"></div>
-            <div class="col-lg-4 col-md-4"></div>
+  <div class="container">
+    <h3 class="col-12 text-center mb-4" style="color: red">
+      Ваша корзина и оформление заказа
+    </h3>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-0">
+      <div class="col">
+        <div class="card p-0">
+          <div
+            class="card-header"
+            style="border-bottom: 3px solid red; background: none"
+          >
+            Аккаунт
+          </div>
+          <div class="card-body"  style="background: #fbfbfb;">
+            <div class="mb-3">
+              <select name="" id="" class="form-select">
+                <option value="" selected>Выберите адрес доставки</option>
+                <option value="">Киев, ул.Мира, 21 кв.30</option>
+                <option value="">Киев, ул.Зодчих, 44 кв.8</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label class="text-small text-muted" for="name"
+                >Имя и фамилия</label
+              >
+              <input id="name" class="form-control" type="text" readonly />
+            </div>
+            <div class="mb-3">
+              <label class="text-small text-muted" for="phone"
+                >Номер телефона</label
+              >
+              <input id="phone" class="form-control" readonly type="text" />
+            </div>
+            <div class="mb-3">
+              <label class="text-small text-muted" for="email"
+                >Email (указан при регистрации)</label
+              >
+              <input id="email" class="form-control" type="email" readonly />
+            </div>
+          </div>
         </div>
+      </div>
+      <div class="col">
+        <div class="card p-0">
+          <div
+            class="card-header"
+            style="border-bottom: 3px solid red; background: none"
+          >
+            Метод доставки
+          </div>
+          <div class="card-body" style="background: #fbfbfb;">
+            <div class="mb-3 d-flex justify-content-between align-items-center">
+              <div class="form-check d-flex align-items-center">
+                <input
+                  class="form-check-input me-3"
+                  type="radio"
+                  name="flexRadioDefault"
+                  id="flexRadioDefault2"
+                  checked
+                />
+                <label class="form-check-label" for="flexRadioDefault2">
+                  <img
+                    width="40px"
+                    src="{% static 'assets/np.jpeg' %}"
+                    alt=""
+                  />
+                </label>
+              </div>
+              <p class="card-text">
+                Новая Почта <br />
+                Ежедневная <br />
+                отправка Пн.-Пт.
+              </p>
+              <p class="card-text">60 грн</p>
+            </div>
+            <div
+              class="mb-3 d-flex justify-content-between align-items-center"
+              style="
+                border: 1px solid lightgrey;
+                padding: 5px;
+                border-radius: 5px;
+              "
+            >
+              <div class="form-check d-flex align-items-center">
+                <input
+                  class="form-check-input me-3"
+                  type="radio"
+                  name="flexRadioDefault"
+                  id="flexRadioDefault2"
+                  checked
+                />
+                <label class="form-check-label" for="flexRadioDefault2">
+                  <img
+                    width="40px"
+                    src="{% static 'assets/samovyvoz.jpeg' %}"
+                    alt="ukr_pochta"
+                  />
+                </label>
+              </div>
+              <p class="card-text">
+                Самовывоз <br />
+                из офиса
+              </p>
+              <p class="card-text">бесплатно</p>
+            </div>
+            <div class="mb-3">
+              <select name="" id="" class="form-select">
+                <option value="" selected>Выберите офис самовывоза:</option>
+                <option value="">Киев, ул.Мира, 21 кв.30</option>
+                <option value="">Киев, ул.Зодчих, 44 кв.8</option>
+              </select>
+            </div>
+            <div class="mb-3 d-flex justify-content-between align-items-center">
+              <div class="form-check d-flex align-items-center">
+                <input
+                  class="form-check-input me-3"
+                  type="radio"
+                  name="flexRadioDefault"
+                  id="flexRadioDefault2"
+                  checked
+                />
+                <label class="form-check-label" for="flexRadioDefault2">
+                  <img
+                    width="40px"
+                    src="{% static 'assets/ukrpochta.webp' %}"
+                    alt="ukr_pochta"
+                  />
+                </label>
+              </div>
+              <p class="card-text">
+                УкрПочта <br />
+                Отправка 2 раза в <br />
+                неделю
+              </p>
+              <p class="card-text">60 грн</p>
+            </div>
+            <hr />
+            <div class="prezent__wrapper">
+              <h6>Подарочное оформление</h6>
+              <div class="form-check">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  value=""
+                  id="flexCheckChecked"
+                />
+                <label
+                  class="form-check-label"
+                  for="flexCheckChecked"
+                  style="font-size: 14px"
+                >
+                  Оформить заказ в подарочную упаковку
+                </label>
+              </div>
+              <div class="prezent__footer">
+                <span style="color: teal">* Стоимость услуги 65 грн</span>
+                <img
+                  src="{% static 'assets/present-small.jpeg' %}"
+                  alt="present"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card p-0">
+          <div
+            class="card-header"
+            style="border-bottom: 3px solid red; background: none"
+          >
+            Форма оплаты
+          </div>
+          <div class="card-body" style="background: #fbfbfb;">
+            <div class="mb-3 d-flex justify-content-between align-items-center">
+              <div class="form-check d-flex align-items-center">
+                <input
+                  class="form-check-input me-3"
+                  type="radio"
+                  name="flexRadioDefault"
+                  id="flexRadioDefault2"
+                  checked
+                />
+                <label class="form-check-label" for="flexRadioDefault2">
+                  <img
+                    width="70px"
+                    src="{% static 'assets/cashondelivery.webp' %}"
+                    alt=""
+                  />
+                </label>
+              </div>
+              <p class="card-text ms-3">
+                Наличными при получении Оплата курьеру или в офисе при
+                самовывозе
+              </p>
+            </div>
+            <div class="mb-3 d-flex justify-content-between align-items-center">
+              <div class="form-check d-flex align-items-center">
+                <input
+                  class="form-check-input me-3"
+                  type="radio"
+                  name="flexRadioDefault"
+                  id="flexRadioDefault2"
+                  checked
+                />
+                <label class="form-check-label" for="flexRadioDefault2">
+                  <img
+                    width="70px"
+                    src="{% static 'assets/ecm_liqpay.webp' %}"
+                    alt=""
+                  />
+                </label>
+              </div>
+              <p class="card-text ms-3">
+                Банковской картой VISA/MasterCard Оплата через электронную
+                платежную систему LiqPay
+              </p>
+            </div>
+            <div class="mb-3 d-flex justify-content-between align-items-center">
+              <div class="form-check d-flex align-items-center">
+                <input
+                  class="form-check-input me-3"
+                  type="radio"
+                  name="flexRadioDefault"
+                  id="flexRadioDefault2"
+                  checked
+                />
+                <label class="form-check-label" for="flexRadioDefault2">
+                  <img
+                    width="70px"
+                    src="{% static 'assets/bankwire.webp' %}"
+                    alt=""
+                  />
+                </label>
+              </div>
+              <p class="card-text ms-3">
+                На карту Приват или МоноБанка Оплата через платежный терминал,
+                Приват 24 или МоноБанк
+              </p>
+            </div>
+            <div class="mb-3 d-flex justify-content-between align-items-center">
+              <div class="form-check d-flex align-items-center">
+                <input
+                  class="form-check-input me-3"
+                  type="radio"
+                  name="flexRadioDefault"
+                  id="flexRadioDefault2"
+                  checked
+                />
+                <label class="form-check-label" for="flexRadioDefault2">
+                  <img
+                    width="70px"
+                    src="{% static 'assets/bankschet.webp' %}"
+                    alt=""
+                  />
+                </label>
+              </div>
+              <p class="card-text ms-3">
+                Перевод на расчетный счет Безналичный перевод на банковский
+                расчетный счет
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+    <div class="row mb-5">
+      <div class="table-responsive-sm">
+        <h3>
+          <span style="color: red">Содержимое вашей корзины:</span> 1 товар
+        </h3>
+        <hr />
+        <table class="table table-bordered align-middle">
+          <thead>
+            <tr class="table-warning text-center">
+              <th scope="col">Товар</th>
+              <th scope="col">Описание</th>
+              <th scope="col">Цена за единицу</th>
+              <th scope="col">Кол-во</th>
+              <th scope="col">Общая сумма</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody class="table-group-divider">
+            <tr class="text-center">
+              <td>
+                <img
+                  width="100px"
+                  src="{% static 'assets/test_book_img.webp' %}"
+                  alt="img"
+                />
+              </td>
+              <td>Богатый папа, бедный папа</td>
+              <td>456 грн</td>
+              <td>
+                <div class="cart__select__amount">
+                  <p>1</p>
+                  <div class="amount">
+                    <button><a href="#">-</a></button>
+                    <button><a href="#">+</a></button>
+                  </div>
+                </div>
+              </td>
+              <td>456 грн</td>
+              <td>&</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <button class="btn btn-warning mx-auto mt-3" style="max-width: 200px">
+        Оформить заказ
+      </button>
+    </div>
+  </div>
 </div>
 
 {% endblock %}
