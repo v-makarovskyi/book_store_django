@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "account",
     "bookstore",
     "checkout",
+    "orders",
     'ckeditor',
     'ckeditor_uploader',
 ]
