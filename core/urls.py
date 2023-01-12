@@ -22,6 +22,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path('', include('bookstore.urls', namespace='bookstore')),
     path('account/', include('account.urls', namespace='account')),
+    path('checkout/', include('checkout.urls', namespace='checkout')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
 ]
 
