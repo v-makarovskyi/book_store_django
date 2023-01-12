@@ -6,11 +6,7 @@ class DeliveryOptions(models.Model):
     """ The table contains all valid shipping methods """
 
     DELIVERY_CHOICES = [
-        ('Самовывоз из офиса', (
-            ('of_one', 'Киев, ул. Крещатик, 5'),
-            ('of_two', 'Киев, ул, Бассейная, 3'),
-        )
-        ),
+        ('sz', 'Самовывоз из офиса'),
         ('np', 'Новая Почта'),
         ('up', 'УкрПочта'),
     ]
