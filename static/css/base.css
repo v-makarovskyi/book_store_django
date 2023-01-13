@@ -140,7 +140,7 @@ header {
   color: white;
   font-size: 20px;
   padding: 7.5px;
-  margin-top: -125px;
+  margin-top: -86px;
   text-align: center;
 }
 
@@ -196,6 +196,8 @@ header {
   object-fit: cover;
   margin: 0;
 }
+
+
 
 /*----------------------------------- CAROUSEL-------------------------------------------*/
 
