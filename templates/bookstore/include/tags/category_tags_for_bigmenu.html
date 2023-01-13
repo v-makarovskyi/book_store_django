@@ -1,0 +1,62 @@
+{% load mptt_tags %} 
+
+{% recursetree list_category %} 
+    {% if node.level == 0 %} 
+        {% if not node.is_leaf_node %}
+            <li class="dropdown dropend">
+            <!-- Базовая категория, имеющая подкотегории -->
+                <a
+                    class="btn btn-outline dropdown-toggle"
+                    href="{% url 'bookstore:category_list' node.slug %}"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    style="background: inherit"
+                >
+                    {{node.name}}
+                </a>
+           
+        {% else %}
+            <li>
+            <!-- Базовая категория, не имеющая подкотегорий -->
+                <a 
+                    class="btn btn-outline"
+                    role="button"
+                    href="{% url 'bookstore:category_list' node.slug %}"
+                >
+                    {{ node.name }}
+                </a> 
+            
+        {% endif %} 
+    {% else %} 
+        {% if not node.is_leaf_node %}
+            <li class="dropdown-submenu">
+                <a
+                    href="{% url 'bookstore:category_list' node.slug %}"
+                    class="btn btn-outline dropdown-toggle"
+                    data-toggle="dropdown"
+                    role="button"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                >
+                    {{node.name}}
+                </a>
+              
+        {% else %}
+            <li>
+                <a 
+                    href="{% url 'bookstore:category_list' node.slug %}"
+                >
+                    {{ node.name }}
+                </a>
+                <li><hr class="dropdown-divider" style="background: lightgrey;" /></li>
+        {% endif %} 
+    {% endif %} 
+            {% if not node.is_leaf_node %}
+                <ul class="children dropdown-menu dropdown-menu-dark p-3">
+                    {{ children }}
+                </ul>
+            {% endif %}
+            </li>
+
+{% endrecursetree %}
