@@ -1,111 +1,14 @@
 {% load static %}
+{% load category_tags %}
 <div class="bigmenu">
   <div class="container">
     <div class="row">
     <div class="big__menu__left col-lg-3 col-md-3">
       <div class="big__menu__left__header w-100">Каталог</div>
       <div class="big__menu__left__body">
-        <ul>
-          <li class="btn-group dropend">
-            <button
-              type="button"
-              class="btn btn-outline dropdown-toggle"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-              style="background: inherit"
-            >
-              Художественные
-            </button>
-            <ul class="dropdown-menu dropdown-menu-dark">
-              <li class="dropdown-item mb-1">Современные авторы</li>
-              <li><hr class="dropdown-divider" /></li>
-              <li class="dropdown-item mb-1">Фантастика</li>
-              <li><hr class="dropdown-divider" /></li>
-              <li class="dropdown-item mb-1">Любовный роман</li>
-              <li><hr class="dropdown-divider" /></li>
-              <li class="dropdown-item mb-1">Триллеры</li>
-              <li><hr class="dropdown-divider" /></li>
-              <li class="dropdown-item mb-1">Детективы</li>
-            </ul>
-          </li>
-          <li class="btn-group dropend">
-            <button
-              type="button"
-              class="btn btn-outline dropdown-toggle"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-              style="background: inherit"
-            >
-              Прикладные
-            </button>
-            <ul class="dropdown-menu dropdown-menu-dark">
-              <li class="dropdown-item mb-1">Психология</li>
-              <li><hr class="dropdown-divider" /></li>
-              <li class="dropdown-item mb-1">Саморазвитие, мотивация</li>
-              <li><hr class="dropdown-divider" /></li>
-              <li class="dropdown-item mb-1">История и факты</li>
-              <li><hr class="dropdown-divider" /></li>
-              <li class="dropdown-item mb-1">Справочная литература</li>
-              <li><hr class="dropdown-divider" /></li>
-              <li class="dropdown-item mb-1">Здоровье и красота</li>
-              <li><hr class="dropdown-divider" /></li>
-              <li class="dropdown-item mb-1">Умелые руки</li>
-              <li><hr class="dropdown-divider" /></li>
-              <li class="dropdown-item mb-1">Бизнес-литература</li>
-              <li><hr class="dropdown-divider" /></li>
-              <li class="dropdown-item mb-1">Эзотерика</li>
-            </ul>
-          </li>
-          <li class="btn-group dropend">
-            <button
-              type="button"
-              class="btn btn-outline dropdown-toggle"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-              style="background: inherit"
-            >
-              Детская литература
-            </button>
-            <ul class="dropdown-menu dropdown-menu-dark">
-              <li class="dropdown-item mb-1">Детям до 4-х лет</li>
-              <li><hr class="dropdown-divider" /></li>
-              <li class="dropdown-item mb-1">Детям 4-6 лет</li>
-              <li><hr class="dropdown-divider" /></li>
-              <li class="dropdown-item mb-1">Детям 7-12 лет</li>
-              <li><hr class="dropdown-divider" /></li>
-              <li class="dropdown-item mb-1">Детям от 12 лет</li>
-              <li><hr class="dropdown-divider" /></li>
-              <li class="dropdown-item mb-1">Готовимся к школе</li>
-              <li><hr class="dropdown-divider" /></li>
-              <li class="dropdown-item mb-1">Развивающие книги</li>
-              <li><hr class="dropdown-divider" /></li>
-              <li class="dropdown-item mb-1">Сказки и повести</li>
-              <li><hr class="dropdown-divider" /></li>
-              <li class="dropdown-item mb-1">Энциклопедии</li>
-            </ul>
-          </li>
-          <li class="btn-group dropend">
-            <button
-              type="button"
-              class="btn btn-outline dropdown-toggle"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-              style="background: inherit"
-            >
-              Спецпредложения
-            </button>
-            <ul class="dropdown-menu dropdown-menu-dark">
-              <li class="dropdown-item mb-1">Книжные новинки</li>
-              <li><hr class="dropdown-divider" /></li>
-              <li class="dropdown-item mb-1">Новинки партнеров</li>
-              <li><hr class="dropdown-divider" /></li>
-              <li class="dropdown-item mb-1">Комплекты со скидками</li>
-              <li><hr class="dropdown-divider" /></li>
-              <li class="dropdown-item mb-1">Скоро в продаже</li>
-              <li><hr class="dropdown-divider" /></li>
-              <li class="dropdown-item mb-1">Распродажа</li>
-            </ul>
-          </li>
+        {% load mptt_tags %}
+        <ul class="root">
+          {% get_categories %}
         </ul>
       </div>
     </div>
