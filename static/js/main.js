@@ -20,3 +20,4 @@ close.addEventListener('click', () => {
     overlay.classList.remove('active')
     console.log('close')
 })
+
